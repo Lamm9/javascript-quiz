@@ -16,7 +16,7 @@ N/A
 
 ## Usage
 
-This application is intended to be used in a web browser.
+This application is intended to be used in a web browser to test your knowledge of JavaScript.
 
 ## Credits
 

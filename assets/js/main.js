@@ -1,6 +1,8 @@
 var start = $('<button id=startButton>');
-var timer = $('<p>');
+var timer = $('');
 var quizA = $('#quiz-area');
+var questionEl = $('<p>');
+var answerEl = $('<p>');
 
 var questions = [
     {
@@ -22,8 +24,19 @@ start.on('click', function(event) {
     $(quizA).append(timer);
     console.log(event);
     $(start).remove();
+    quizTimer();
     askQuestions();
     })
+
+incrementTimer = function() {
+    for (var i = 0; i++;) {
+        console.log([i])
+    }
+}
+
+quizTimer = function() {
+    setInterval(incrementTimer,1000);
+}
 
 askQuestions = function() {
     for(
@@ -31,4 +44,6 @@ askQuestions = function() {
     ) {
         questions[i]
     }
+    $(quizA).append(questionEl);
+    $(quizA).append(answerEl);
 }
