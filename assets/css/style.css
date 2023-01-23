@@ -1,10 +1,15 @@
 :root {
     --gray: rgb(35, 33, 46);
     --blue: rgb(40, 40, 120);
+    --whiteish: rgb(204, 210, 231);
 }
 
 html {
     background-color: var(--gray);
+}
+
+h1 {
+    color: var(--whiteish);
 }
 
 main {

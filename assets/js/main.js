@@ -1,8 +1,7 @@
 var start = $('<button id=startButton>');
 var timer = $('');
 var quizA = $('#quiz-area');
-var questionEl = $('<p>');
-var answerEl = $('<p>');
+
 
 var questions = [
     {
@@ -16,6 +15,9 @@ var questions = [
         correct: 'a'
     }
 ]
+
+var questionEl = $('<p>' + questions[0] + '</p>');
+var answerEl = $('<p>');
 
 $(start).text('Start');
 $(quizA).append(start);
@@ -44,6 +46,7 @@ askQuestions = function() {
     ) {
         questions[i]
     }
+    JSON.stringify(questions);
     $(quizA).append(questionEl);
     $(quizA).append(answerEl);
 }
