@@ -1,23 +1,32 @@
 var start = $('<button id=startButton>');
 var timer = $('');
 var quizA = $('#quiz-area');
+var questionEl = document.querySelector('#question');
+var answerEl = document.querySelector('#answers');
 
 
 var questions = [
     {
         question: 'what kind of language is JavaScript?',
 
-        answers: {
-            a: 'programming',
-            b: 'markup',
-            c: 'germanic'
-        },
+        answers: [
+            { a: 'programming'},
+            { b: 'markup'},
+            { c: 'germanic' },
+        ],
         correct: 'a'
-    }
-]
+    },
+    {
+        question: 'question 2',
 
-var questionEl = $('<p>' + questions[0] + '</p>');
-var answerEl = $('<p>');
+        answers: [
+            { a: 'answer 1'},
+            { b: 'answer 2'},
+            { c: 'answer 3'},
+        ],
+        correct: 'c'
+    },
+]
 
 $(start).text('Start');
 $(quizA).append(start);
@@ -30,23 +39,20 @@ start.on('click', function(event) {
     askQuestions();
     })
 
-incrementTimer = function() {
-    for (var i = 0; i++;) {
-        console.log([i])
+function renderQuestions(num) {
+    var currentQuestion = questions[num - 1];
+
+    questionEl.textContent = currentQuestion.question;
+
+    for (var i=0; i < currentQuestion.answers.length; i++) {
+        var answer = currentQuestion.answers[i].text;
+
+        var li = document.createElement('li');
+        li.textContent = answer;
+        li.setAttribute('data-q-index', questionIndex);
+        li.setAttribute('data-q-answer', answer);
+        answerEl.append(li);
     }
 }
 
-quizTimer = function() {
-    setInterval(incrementTimer,1000);
-}
-
-askQuestions = function() {
-    for(
-        var i =0; i < questions.length; i++
-    ) {
-        questions[i]
-    }
-    JSON.stringify(questions);
-    $(quizA).append(questionEl);
-    $(quizA).append(answerEl);
-}
+renderQuestions(1);
