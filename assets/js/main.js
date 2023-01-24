@@ -16,44 +16,44 @@ var questions = [
         correct: 'a'
     },
     {
-        question: 'question 2',
+        question: 'What is the name of a container in JavaScript?',
 
         answers: [
-            { a: 'answer 1'},
-            { b: 'answer 2'},
-            { c: 'answer 3'},
+            { a: 'object'},
+            { b: 'variable'},
+            { c: 'string'},
         ],
-        correct: ''
+        correct: 'b'
     },
     {
-        question: 'question',
+        question: 'What year was JavaScript created?',
 
         answers: [
-            { a: 'answer 1'},
-            { b: 'answer 2'},
-            { c: 'answer 3'},
+            { a: '2023'},
+            { b: '1974'},
+            { c: '1995'},
         ],
-        correct: ''
+        correct: 'c'
     },
     {
-        question: 'question',
+        question: 'How long did it take Brendan Eich to develop JavaScipt?',
 
         answers: [
-            { a: 'answer 1'},
-            { b: 'answer 2'},
-            { c: 'answer 3'},
+            { a: '6 months'},
+            { b: '3 weeks'},
+            { c: '10 days'},
         ],
-        correct: ''
+        correct: 'c'
     },
     {
-        question: 'question',
+        question: 'What was JavaScript originally called?',
 
         answers: [
-            { a: 'answer 1'},
-            { b: 'answer 2'},
-            { c: 'answer 3'},
+            { a: 'CoffeeCode'},
+            { b: 'Mocha'},
+            { c: 'HTML2.0'},
         ],
-        correct: ''
+        correct: 'b'
     }
 ]
 
