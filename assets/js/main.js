@@ -4,7 +4,6 @@ var quizA = $('#quiz-area');
 var questionEl = document.querySelector('#question');
 var answerEl = document.querySelector('#answers');
 
-
 var questions = [
     {
         question: 'what kind of language is JavaScript?',
@@ -39,8 +38,10 @@ start.on('click', function(event) {
     askQuestions();
     })
 
-function renderQuestions(num) {
-    var currentQuestion = questions[num - 1];
+function renderQuestions() {
+    answerEl.textContent = '';
+    var currentQuestion = questions[currentQuestion - 1];
+    var selectedQuestion = questions[index]
 
     questionEl.textContent = currentQuestion.question;
 
@@ -51,8 +52,25 @@ function renderQuestions(num) {
         li.textContent = answer;
         li.setAttribute('data-q-index', questionIndex);
         li.setAttribute('data-q-answer', answer);
+        li.addEventListener('click', handleAnswer);
         answerEl.append(li);
     }
 }
 
-renderQuestions(1);
+function handleAnswer(event) {
+    var qIndex = event.target.getAttribute('data-q-index');
+    var qAnswer = event.target.getAttribute('data-q-answer');
+
+    var question = questions[qIndex];
+
+    if (qAnswer === question.correct) {
+        console.log('correct');
+        currentQuestion++;
+        renderQuestions(currentQuestion);
+    }
+    else {
+        console.log('incorrect');
+    }
+}
+
+renderQuestions(currentQuestion);
