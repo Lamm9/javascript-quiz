@@ -23,8 +23,38 @@ var questions = [
             { b: 'answer 2'},
             { c: 'answer 3'},
         ],
-        correct: 'c'
+        correct: ''
     },
+    {
+        question: 'question',
+
+        answers: [
+            { a: 'answer 1'},
+            { b: 'answer 2'},
+            { c: 'answer 3'},
+        ],
+        correct: ''
+    },
+    {
+        question: 'question',
+
+        answers: [
+            { a: 'answer 1'},
+            { b: 'answer 2'},
+            { c: 'answer 3'},
+        ],
+        correct: ''
+    },
+    {
+        question: 'question',
+
+        answers: [
+            { a: 'answer 1'},
+            { b: 'answer 2'},
+            { c: 'answer 3'},
+        ],
+        correct: ''
+    }
 ]
 
 $(start).text('Start');
