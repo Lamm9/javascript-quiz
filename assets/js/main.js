@@ -1,27 +1,28 @@
 var start = $('<button id=startButton>');
-var timer = $('');
+var timer
 var quizA = $('#quiz-area');
 var questionEl = document.querySelector('#question');
 var answerEl = document.querySelector('#answers');
+var currentQuestion = 0;
 
 var questions = [
     {
         question: 'what kind of language is JavaScript?',
 
         answers: [
-            { a: 'programming'},
-            { b: 'markup'},
-            { c: 'germanic' },
+            { text: 'programming'},
+            { text: 'markup'},
+            { text: 'germanic' },
         ],
-        correct: 'a'
+        correct: 'programming'
     },
     {
         question: 'What is the name of a container in JavaScript?',
 
         answers: [
-            { a: 'object'},
-            { b: 'variable'},
-            { c: 'string'},
+            { text: 'object'},
+            { text: 'variable'},
+            { text: 'string'},
         ],
         correct: 'b'
     },
@@ -29,9 +30,9 @@ var questions = [
         question: 'What year was JavaScript created?',
 
         answers: [
-            { a: '2023'},
-            { b: '1974'},
-            { c: '1995'},
+            { text: '2023'},
+            { text: '1974'},
+            { text: '1995'},
         ],
         correct: 'c'
     },
@@ -39,9 +40,9 @@ var questions = [
         question: 'How long did it take Brendan Eich to develop JavaScipt?',
 
         answers: [
-            { a: '6 months'},
-            { b: '3 weeks'},
-            { c: '10 days'},
+            { text: '6 months'},
+            { text: '3 weeks'},
+            { text: '10 days'},
         ],
         correct: 'c'
     },
@@ -49,9 +50,9 @@ var questions = [
         question: 'What was JavaScript originally called?',
 
         answers: [
-            { a: 'CoffeeCode'},
-            { b: 'Mocha'},
-            { c: 'HTML2.0'},
+            { text: 'CoffeeCode'},
+            { text: 'Mocha'},
+            { text: 'HTML2.0'},
         ],
         correct: 'b'
     }
@@ -64,23 +65,20 @@ start.on('click', function(event) {
     $(quizA).append(timer);
     console.log(event);
     $(start).remove();
-    quizTimer();
-    askQuestions();
+    renderQuestions();
     })
 
 function renderQuestions() {
     answerEl.textContent = '';
-    var currentQuestion = questions[currentQuestion - 1];
-    var selectedQuestion = questions[index]
+    var selectedQuestion = questions[currentQuestion];
 
-    questionEl.textContent = currentQuestion.question;
+    questionEl.textContent = selectedQuestion.question;
 
-    for (var i=0; i < currentQuestion.answers.length; i++) {
-        var answer = currentQuestion.answers[i].text;
+    for (var i=0; i < selectedQuestion.answers.length; i++) {
+        var answer = selectedQuestion.answers[i].text;
 
         var li = document.createElement('li');
         li.textContent = answer;
-        li.setAttribute('data-q-index', questionIndex);
         li.setAttribute('data-q-answer', answer);
         li.addEventListener('click', handleAnswer);
         answerEl.append(li);
@@ -88,19 +86,20 @@ function renderQuestions() {
 }
 
 function handleAnswer(event) {
-    var qIndex = event.target.getAttribute('data-q-index');
     var qAnswer = event.target.getAttribute('data-q-answer');
 
-    var question = questions[qIndex];
+    var question = questions[currentQuestion].question;
 
     if (qAnswer === question.correct) {
         console.log('correct');
         currentQuestion++;
-        renderQuestions(currentQuestion);
+        renderQuestions();
     }
     else {
         console.log('incorrect');
     }
 }
 
-renderQuestions(currentQuestion);
+function startTimer() {
+
+}

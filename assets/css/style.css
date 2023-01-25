@@ -12,11 +12,19 @@ h1 {
     color: var(--whiteish);
 }
 
+h2 {
+    color: var(--whiteish);
+}
+
 main {
     display: flex;
     justify-content: center;
     position: relative;
     align-items: center;
+}
+
+li {
+    color: var(--whiteish);
 }
 
 #startButton {
